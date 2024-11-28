@@ -246,19 +246,21 @@ input[type="number"] {
     display: none;
 }
 .slider-image.active{
-    width: 766px !important;
-    height: 750px !important;
-
-
+    width: 500px !important;
+    height: 550px !important
 }
 .slider-image.active h1{
     display: none;
 }
 .slider-image.active .details p, .slider-image.active .details h2{
 display: block;
-
 }
-
+.round-image{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+}
 
 
 
