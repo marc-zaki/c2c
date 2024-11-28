@@ -12,15 +12,14 @@
 </head>
 <body class="custom-body">
 <div class="wrapper">
-  <button><a href="./homepage.html">test skip</a></button>
-  <form action="./homepage.html" method="GET" id="loginForm">
+  <form onsubmit="return validateNationalID()" action="./homepage.html" method="GET" id="loginForm">
     <h1>Welcome to Cairo2Capital Transport</h1>
     <p class="title">Login</p>
 
     <!-- National ID-->
 
     <div class="input-box">
-      <input type="number" placeholder="National ID" required id="NationalID">
+      <input type="number" placeholder="National ID" required id="nationalID">
       <i class='bx bxs-user'></i>    
     </div>
 
