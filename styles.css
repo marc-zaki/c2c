@@ -2,7 +2,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Jost", sans-serif;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
 }
 
 .custom-body {
@@ -276,7 +278,7 @@ display: block;
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
 }
 .faq-item
 {
@@ -289,7 +291,7 @@ display: block;
     border: none;
     width: 100%;
     text-align: left;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: #007bff;
     cursor: pointer;
     padding: 10px;
@@ -297,6 +299,7 @@ display: block;
     align-items: center;
     justify-content: space-between;
     outline: none;
+
 }
 .icon
 {
@@ -306,9 +309,10 @@ display: block;
 .faq-answer
 {
     padding: 10px;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: #555;
     display: none;
+
 }
 .faq-question.active.icon
 {
