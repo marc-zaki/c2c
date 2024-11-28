@@ -178,7 +178,7 @@ input[type="number"] {
     
 }
 .train{
-    font-family: "Jost", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 40px;
     font-weight: 700;
     text-align: center;
@@ -193,7 +193,7 @@ input[type="number"] {
 
 }
 .metro{
-    font-family: "Jost", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 40px;
     font-weight: 700;
     text-align: center;
@@ -210,7 +210,7 @@ input[type="number"] {
 
 }
 .Bus{
-    font-family: "Jost", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 40px;
     font-weight: 700;
     text-align: center;
@@ -230,7 +230,7 @@ input[type="number"] {
     left:43px
 }
 .details h2{
-    font-family: "Jost", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 26px;
     font-weight: 700;
     text-align: left;
@@ -243,7 +243,7 @@ input[type="number"] {
     -webkit-text-stroke: 0.25px black;
 }
 .details p{
-    font-family: "Jost", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 20px;
     font-weight: 700;
     text-align: left;
