@@ -201,12 +201,10 @@ input[type="number"] {
     color: white;
     position: absolute;
     top: 50%;
-    left: -125%;
+    left: -50%;
     transform: rotate(270deg);
     transition: 0.7s ease;
     -webkit-text-stroke: 0.25px black;
-    white-space: nowrap;
-
 
 }
 .Bus{
