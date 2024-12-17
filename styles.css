@@ -316,6 +316,10 @@ display: block;
 {
     content: "-";
 }
-
-
-
+.map
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1050px;
+}
