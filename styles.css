@@ -323,3 +323,24 @@ display: block;
     margin-right: auto;
     width: 1050px;
 }
+.small-cards {
+    grid-column: span 3;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+.small-card {
+    flex: 1;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    height:250px;
+    width: 250px;
+}
+.small-card img {
+    width: 100%;
+    height: auto;
+    height:250px;
+    width: 250px;
+}
