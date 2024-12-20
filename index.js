@@ -19,12 +19,6 @@ document.addEventListener("DOMContentLoaded", () =>{
   
 });
 
-$(document).ready(function(){
-    $('.slider-image').on('click', function(){
-        $('.slider-image').removeClass('active');
-        $(this).addClass('active');
-    });
-});
 
 document.getElementById('nationalID').addEventListener('input', function() {
   var nationalID = this.value;
