@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+.namesContainer { 
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 10px; 
+} 
+.Marc abt{
+    display: grid; 
+    grid-template-rows: auto auto; 
+    text-align: center;
+} 
+.David abt{
+    display: grid; 
+    grid-template-rows: auto auto; 
+    text-align: center;
+}
+.Omar abt{
+    display: grid; 
+    grid-template-rows: auto auto; 
+    text-align: center;
+}
+.Lydia abt {
+    display: grid; 
+    grid-template-rows: auto auto; 
+    text-align: center;
+}
+.round-image{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+}
