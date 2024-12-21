@@ -10,90 +10,61 @@ body {
     background: #ecececdb;
 }
 
-.menu-container{
-    min-height: 100vh;
+.plan-container{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-}
-
-.dropdown {
-    min-width: 15em;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    max-width: 300px;
+    margin: 100px auto;
+    gap: 20px;
+    background-color: #198754;
+    padding: 26px;
+    border-radius: 8px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.04);
+    border: 2px solid transparent;
     position: relative;
-    margin: 2em;
+    height: 300px;
 }
-
-.dropdown *{
-    box-sizing: border-box;
-}
-.select {
-    background: #2a2f3b;
-    color: #fff;
+.plan-btn{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    border: 2px #2a2f3b solid;
-    border-radius: 0.5em;
-    padding: 1em;
+    margin: 50px auto;
+    width: 50%;
+    height: 45px;
+    background: #333;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
     cursor: pointer;
-    transition: background 0.3s;
+    font-size: 16px;
+    color: white;
+    font-weight: 600;  
 }
-.select-clicked{
-    border: 2px #2a2f3b solid;
-    box-shadow: 0 0 0.8em #26489a;
-
-}
-.select:hover{
-    background: #323741;
-
-}
-.caret{
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 6px solid #fff;
-    transition: 0.3s;
-
-}
-.caret-rotate{
-    transform: rotate(180deg);
-
-}
-.menu{
-    list-style: none;
-    padding: 0.2em 0.5em;
-    background:#323741;
-    border: 1px #363a43 solid;
-    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
-    border-radius: 0.5em;
-    color: #9fa5b5;
+.from-box{
+    font-size: 16px;
+    font-weight: 700;
+    left: 10px;
+    line-height: 1;
+    margin: 0;
     position: absolute;
-    top: 3em;
-    left: 50%;
-    width: 100%;
-    transform: translateX(-50%);
-    opacity: 0;
-    display: none;
-    transition: 0.2s;
-    z-index: 1;
-
+    top: 11px;
+    width: 40px;
+    display: inline-block;
+    font-weight: 700;
+    margin-bottom: 5px;
+    max-width: 100%;
 }
-
-.menu li{
-    padding: 0.7em 0.5em;
-    margin: 0.3em 0;
-    border-radius: 0.5em;
-    cursor: pointer;
-}
-.menu li:hover{
-    background: #2a2d35;
-}
-.active{
-    background: #23242a;
-}
-.menu-open{
-    display: block;
-    opacity: 1;
+.to-box{
+    width: 200px;
+    height: 50px;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(51, 51, 51, 0.5);  
+    border-radius: 40px;
+    font-size: 20px;
+    color: #333;
+    padding: 20px 20px 20px 20px;
 }

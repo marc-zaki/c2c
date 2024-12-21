@@ -27,39 +27,22 @@
           </ul>
         </header>
       </div>
-      <div class="menu-container">
-      <div class="dropdown">
-        <div class="select">
-            <span class="selected">Choose Start</span>
-            <div class="caret">
-            </div>
-        </div>
-        <ul class="menu">
-            <li class="active">Choose Start</li>
-            <li>Station 1</li>
-            <li>Station 2</li>
-            <li>Station 3</li>
-            <li>Station 4</li>
-            <li>Station 5</li>
-            <li>Station 6</li>
-        </ul>
+
+      <div class="plan-container">
+        <div class="trip-plan">
+          <form action="">
+            <input type="text" name="plan-from" placeholder="From" class="from-box" required>
+            <br>
+            <input type="text" name="plan-to" placeholder="To" class="to-box" required>
+            <br>
+            <label for="date"></label>
+            <input type="date" id="plan-date" required>
+            <button class="plan-btn">Submit</button>
+          </form> 
+      </div>
     </div>
-    <div class="dropdown">
-        <div class="select">
-            <span class="selected">Choose Destination</span>
-            <div class="caret"></div>
-        </div>
-        <ul class="menu">
-            <li class="active">Choose Destination</li>
-            <li>Station 1</li>
-            <li>Station 2</li>
-            <li>Station 3</li>
-            <li>Station 4</li>
-            <li>Station 5</li>
-            <li>Station 6</li>
-        </ul>
-    </div>
-  </div>
+    
+
     <div class="container">
         <footer class="py-3 my-4">
           <ul class="nav justify-content-center border-bottom pb-3 mb-3">
