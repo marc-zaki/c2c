@@ -1,3 +1,31 @@
+<?php
+session_start();
+include("connection.php");
+include("functions.php");
+
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    $Nat_ID = $_POST['Nat_ID'];
+    $Password = $_POST['Password'];
+    $email = $_POST['email'];
+
+    if (!empty($Nat_ID) && !empty($Password)) {
+        // Hash the password
+        $hashed_password = password_hash($Password, PASSWORD_DEFAULT);
+        
+        // Use prepared statements to prevent SQL injection
+        $stmt = $con->prepare("INSERT INTO users (Nat_ID, Password, email) VALUES (?, ?, ?)");
+        $stmt->bind_param("sss", $Nat_ID, $hashed_password, $email);
+        $stmt->execute();
+        $stmt->close();
+        
+        // Redirect to login page
+        header("Location: login.php");
+        die;
+    } else {
+        echo "Please enter valid information";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,18 +33,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Signup</title>
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <link rel="stylesheet" href="login-signup.css">
+  <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com' crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Libre+Baskerville&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
-
 </head>
 <body class="custom-body">
 <div class="wrapper">
-  <form onsubmit="return signupValidate()" action="/Homepage/stations.html" method="GET" id="signupForm">
+  <form method="post" onsubmit="return signupValidate()" action="" id="signupForm">
     <h1>Welcome to Cairo2Capital Transport</h1>
     <p class="title">Signup</p>
-    
+
     <!-- First Name -->
     <div class="input-box">
       <input type="text" placeholder="First Name">
@@ -29,34 +56,25 @@
       <i class='bx bxs-user'></i> 
     </div>
 
-    <!-- National ID-->
     <div class="input-box">
-      <input type="number" placeholder="National ID" id="nationalID" required>
-      <i class='bx bxs-id-card'></i>   
+      <input type="number" placeholder="National ID" name='Nat_ID' id="nationalID" required>
+      <i class='bx bxs-user'></i>    
     </div>
-
-    <!-- Email -->
     <div class="input-box">
-      <input type="email" placeholder="Email (Optional)">
-      <i class='bx bxs-envelope' ></i>    
+      <input type="email" placeholder="Email (Optional)" name='email'>
+      <i class='bx bxs-envelope'></i>    
     </div>
-
-    <!-- Password -->
     <div class="input-box">
-      <input type="password" placeholder="Password" id="password" required>
+      <input type="password" placeholder="Password" id="password" name='Password' required>
       <i class='bx bxs-lock-alt'></i>
     </div>
-
-    <!-- Repeat Password -->
     <div class="input-box">
       <input type="password" placeholder="Repeat password" id="confirm-password" required>
       <i class='bx bxs-lock-alt'></i>
     </div>
-
     <button type="submit" class="btn">Signup</button>
-
     <div class="login-link">
-      <p>Already have an account? <a href="./login.html">Login</a></p>
+      <p>Already have an account? <a href="./login.php">Login</a></p>
     </div>
   </form>
 </div>
