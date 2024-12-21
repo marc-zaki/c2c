@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 </head>
 <body class="custom-body">
 <div class="wrapper">
-  <form method="post" onsubmit="return signupValidate()" action="" id="signupForm">
+  <form method="POST" onsubmit="return signupValidate()" id="signupForm">
     <h1>Welcome to Cairo2Capital Transport</h1>
     <p class="title">Signup</p>
 

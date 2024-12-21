@@ -3,6 +3,7 @@ session_start();
 include("connection.php");
 include("functions.php");
 $user_data = check_login($con);
+header("Location: login.php");
 ?>
 <!DOCTYPE html>
 <html>
