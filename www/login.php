@@ -3,14 +3,14 @@ session_start();
 include("connection.php");
 include("functions.php");
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $Nat_ID = $_POST['Nat_ID'];
+    $National_ID = $_POST['National_ID'];
     $Password = $_POST['Password'];
 
-    if (!empty($Nat_ID) && !empty($Password)) {
+    if (!empty($National_ID) && !empty($Password)) {
         // Prepare the SQL statement to prevent SQL injection
-        $query = "SELECT * FROM users WHERE Nat_ID = ? LIMIT 1";
+        $query = "SELECT * FROM users WHERE National_ID = ? LIMIT 1";
         $stmt = $con->prepare($query);
-        $stmt->bind_param("s", $Nat_ID);
+        $stmt->bind_param("s", $National_ID);
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             
             // Verify the password
             if (password_verify($Password, $user_data['Password'])) {
-                $_SESSION['Nat_ID'] = $user_data['Nat_ID'];
+                $_SESSION['National_ID'] = $user_data['National_ID'];
                 // Ensure there is no output before header
                 header("Location: stations.html");
                 die;
@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     
     <!-- National ID -->
     <div class="input-box">
-      <input type="number" placeholder="National ID" name='Nat_ID' id="nationalID" required>
+      <input type="number" placeholder="National ID" name='National_ID' id="nationalID" required>
       <i class='bx bxs-user'></i>    
     </div>
 

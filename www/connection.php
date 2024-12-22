@@ -2,7 +2,7 @@
  $dbhost="localhost";
  $dbuser="root";
  $dbpass="";
- $dbname="usersing";
+ $dbname="signup";
 
 if(!$con=mysqli_connect($dbhost,$dbuser,$dbpass,$dbname))
 {

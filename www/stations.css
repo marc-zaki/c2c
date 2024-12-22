@@ -1,0 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+body {
+    background: #ecececdb;
+}
+
+.plan-container{
+    max-width: 300px;
+    margin: 100px auto;
+    background-color: #198754;
+    border-radius: 8px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.04);
+    border: 2px solid transparent;
+    position: relative;
+    height: 400px;
+}
+.plan-h2{
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    color: white;
+}
+.from-box{
+    font-size: 15px;
+    left: 10px;
+    position: absolute;
+    top: 70px;
+    width: 275px;
+    height: 45px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, .1);
+    background-color: #bef3db;
+}
+.to-box{
+    font-size: 15px;
+    left: 10px;
+    position: absolute;
+    top: 135px;
+    width: 275px;
+    height:45px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, .1);
+    background-color: #bef3db;
+}
+.plan-date{
+    font-size: 15px;
+    left: 10px;
+    position: absolute;
+    top: 200px;
+    width: 275px;
+    height: 45px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, .1);
+    background-color: #bef3db;
+
+}
+.plan-btn{
+    font-size: 20px;
+    left: 10px;
+    position: absolute;
+    top: 320px;
+    width: 275px;
+    height: 60px;
+    background: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #157146;
+    border-radius: 5px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, .1);
+}
+::placeholder{
+
+    color: black;
+}
+.line {
+    border-bottom: 2.5px solid white;
+    margin-top: 10px;
+    width: 150%;
+}
+.faq-question {
+    font-size: 20px;
+    left: 25px;
+    position: absolute;
+    top: 180px;
+    height: 60px;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    background-color: #198754;
+}
+
+.icon {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.faq-question.active .icon {
+    content: "-";
+}
+
+.date {
+    left: 15px;
+    position: absolute;
+    top: 230px;
+    width: 260px;
+    height: 45px;
+    background: #bef3db;
+    cursor: pointer;
+    color: black;
+    border: none;
+    border-radius: 5px;
+}
+
+.faq-answer {
+    display: none;
+}

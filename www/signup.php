@@ -4,17 +4,16 @@ include("connection.php");
 include("functions.php");
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $Nat_ID = $_POST['Nat_ID'];
+    $National_ID = $_POST['National_ID'];
+    $email = $_POST['Email'];
     $Password = $_POST['Password'];
-    $email = $_POST['email'];
 
-    if (!empty($Nat_ID) && !empty($Password)) {
+    if (!empty($National_ID) && !empty($Password)) {
         // Hash the password
         $hashed_password = password_hash($Password, PASSWORD_DEFAULT);
         
-        // Use prepared statements to prevent SQL injection
-        $stmt = $con->prepare("INSERT INTO users (Nat_ID, Password, email) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $Nat_ID, $hashed_password, $email);
+        $stmt = $con->prepare("INSERT INTO users (National_ID	, Password, Email) VALUES (?, ?, ?)");
+        $stmt->bind_param("sss", $National_ID, $hashed_password, $email);
         $stmt->execute();
         $stmt->close();
         
@@ -33,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Signup</title>
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="login-signup.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com' crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Libre+Baskerville&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
@@ -57,11 +56,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     </div>
 
     <div class="input-box">
-      <input type="number" placeholder="National ID" name='Nat_ID' id="nationalID" required>
+      <input type="number" placeholder="National ID" name='National_ID' id="nationalID" required>
       <i class='bx bxs-user'></i>    
     </div>
     <div class="input-box">
-      <input type="email" placeholder="Email (Optional)" name='email'>
+      <input type="email" placeholder="Email (Optional)" name='Email'>
       <i class='bx bxs-envelope'></i>    
     </div>
     <div class="input-box">
