@@ -1,6 +1,4 @@
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
     font-weight: 500;
@@ -15,10 +13,10 @@
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.04);
     border: 2px solid transparent;
     position: relative;
-    height: 400px;
+    height: 420px;
 }
 .plan-h2{
-    position: absolute;
+    position: relative;
     left: 20px;
     top: 10px;
     color: white;
@@ -26,8 +24,8 @@
 .from-box{
     font-size: 15px;
     left: 10px;
-    position: absolute;
-    top: 70px;
+    position: relative;
+    top: 30px;
     width: 275px;
     height: 45px;
     border: none;
@@ -38,8 +36,8 @@
 .to-box{
     font-size: 15px;
     left: 10px;
-    position: absolute;
-    top: 135px;
+    position: relative;
+    top: 50px;
     width: 275px;
     height:45px;
     border: none;
@@ -47,24 +45,11 @@
     box-shadow: 10px 10px 10px rgba(0, 0, 0, .1);
     background-color: #bef3db;
 }
-.plan-date{
-    font-size: 15px;
-    left: 10px;
-    position: absolute;
-    top: 200px;
-    width: 275px;
-    height: 45px;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, .1);
-    background-color: #bef3db;
-
-}
 .plan-btn{
     font-size: 20px;
     left: 10px;
     position: absolute;
-    top: 320px;
+    top: 340px;
     width: 275px;
     height: 60px;
     background: #fff;
@@ -76,7 +61,6 @@
     box-shadow: 10px 10px 10px rgba(0, 0, 0, .1);
 }
 ::placeholder{
-
     color: black;
 }
 .line {
@@ -86,16 +70,17 @@
 }
 .faq-question {
     font-size: 20px;
-    left: 25px;
-    position: absolute;
-    top: 180px;
-    height: 60px;
+    left: 10px;
+    position: relative;
+    top: 65px;
+    height: 10px;
     cursor: pointer;
     color: #fff;
     border-radius: 5px;
     border: none;
     background-color: #198754;
 }
+
 
 .icon {
     font-size: 1.5rem;
@@ -108,8 +93,8 @@
 
 .date {
     left: 15px;
-    position: absolute;
-    top: 230px;
+    position: relative;
+    top: 70px;
     width: 260px;
     height: 45px;
     background: #bef3db;
