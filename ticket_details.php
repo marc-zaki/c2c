@@ -49,6 +49,7 @@ $conn->close();
                 <p><strong>To:</strong> <?php echo htmlspecialchars($ticket['endLocation']); ?></p>
                 <p><strong>Schedule:</strong> <?php echo htmlspecialchars($ticket['schedule']); ?></p>
             </div>
+            <a onclick="window.print();return false;" class="btn btn-success">Print this ticket!</a>
             <a href="stations.php" class="btn btn-success">Plan Another Trip</a>
         </div>
     </div>
