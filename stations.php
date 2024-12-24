@@ -1,3 +1,39 @@
+<?php
+session_start(); // Start the session
+
+$dbhost = "localhost";
+$dbuser = "root";
+$dbpass = "";
+$dbname = "trip";
+include("functions.php"); // Ensure this file contains the generateRandomNumber function
+$conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $startLocation = $_POST["plan-from"];
+    $endLocation = $_POST["plan-to"];
+    $schedule = $_POST["date"];
+    $ticketID = generateRandomNumber(4);
+
+    $sqlInsert = "INSERT INTO ticket (startLocation, endLocation, schedule, ticketID) VALUES (?, ?, ?, ?)";
+    $stmt = $conn->prepare($sqlInsert);
+    $stmt->bind_param("ssss", $startLocation, $endLocation, $schedule, $ticketID);
+
+    if ($stmt->execute()) {
+        $_SESSION['ticketID'] = $ticketID;
+        header("Location: ticket_details.php");
+        exit();
+    } else {
+        echo "Failed to plan trip. Please try again.";
+    }
+
+    $stmt->close();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +46,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+</head>
 <body>
     <div class="container">
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
@@ -26,30 +63,28 @@
         </header>
     </div>
     <div class="plan-container">
-      <div class="pic">
-      </div>
-      <div class="trip-plan">
-          <div class="plan-h2">
-              <h2>Plan a Trip</h2>
-              <div class="line"></div>
-          </div>
-          <form action="">
-              <input type="text" name="plan-from" placeholder=" From" class="from-box">
-              <input type="text" name="plan-to" placeholder=" To" class="to-box">
-              <div class="faq-item">
-                  <button class="faq-question">
-                      Leave Now
-                      <span class="icon">+</span>
-                  </button>
-                  <div class="faq-answer">
-                      <input type="date" name="date" class="date">
-                  </div>
-              </div>
-              <button class="plan-btn">Plan My Trip</button>
-          </form>
-      </div>
-  </div>
-  
+        <div class="pic"></div>
+        <div class="trip-plan">
+            <div class="plan-h2">
+                <h2>Plan a Trip</h2>
+                <div class="line"></div>
+            </div>
+            <form action="stations.php" method="post">
+                <input type="text" name="plan-from" placeholder=" From" class="from-box" required>
+                <input type="text" name="plan-to" placeholder=" To" class="to-box" required>
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        Leave Now
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <input type="date" name="date" class="date" required>
+                    </div>
+                </div>
+                <button class="plan-btn" type="submit">Plan My Trip</button>
+            </form>
+        </div>
+    </div>
 
     <div class="container">
         <footer class="py-3 my-4">
@@ -62,7 +97,6 @@
             <p class="text-center text-body-secondary">© 2024 Cairo2Capital Transport</p>
         </footer>
     </div>
-
     <script src="./stations.js"></script>
 </body>
 </html>

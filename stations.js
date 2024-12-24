@@ -18,3 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+setTimeout(function() {
+    var messageDiv = document.getElementById('message');
+    if (messageDiv) {
+        messageDiv.style.display = 'none';
+    }
+}, 3000);
+

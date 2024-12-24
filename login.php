@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if (password_verify($Password, $user_data['Password'])) {
                 $_SESSION['National_ID'] = $user_data['National_ID'];
                 // Ensure there is no output before header
-                header("Location: stations.html");
+                header("Location: stations.php");
                 die;
             } else {
                 echo "Invalid password";
