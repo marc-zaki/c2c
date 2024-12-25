@@ -44,10 +44,10 @@ $conn->close();
         <div class="ticket">
             <h2>Ticket Details</h2>
             <div class="ticket-details">
-                <p><strong>Ticket ID:</strong> <?php echo htmlspecialchars($ticketID); ?></p>
-                <p><strong>From:</strong> <?php echo htmlspecialchars($ticket['startLocation']); ?></p>
-                <p><strong>To:</strong> <?php echo htmlspecialchars($ticket['endLocation']); ?></p>
-                <p><strong>Schedule:</strong> <?php echo htmlspecialchars($ticket['schedule']); ?></p>
+                <p><strong>Ticket ID:</strong> <?= $ticketID; ?></p>
+                <p><strong>From:</strong> <?= $ticket['startLocation']; ?></p>
+                <p><strong>To:</strong> <?= $ticket['endLocation']; ?></p>
+                <p><strong>Schedule:</strong> <?= $ticket['schedule']; ?></p>
             </div>
             <a onclick="window.print();return false;" class="btn btn-success">Print this ticket!</a>
             <a href="stations.php" class="btn btn-success">Plan Another Trip</a>

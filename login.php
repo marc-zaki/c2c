@@ -7,7 +7,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $Password = $_POST['Password'];
 
     if (!empty($National_ID) && !empty($Password)) {
-        // Prepare the SQL statement to prevent SQL injection
         $query = "SELECT * FROM users WHERE National_ID = ? LIMIT 1";
         $stmt = $con->prepare($query);
         $stmt->bind_param("s", $National_ID);
@@ -16,11 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
         if ($result->num_rows > 0) {
             $user_data = $result->fetch_assoc();
-            
-            // Verify the password
-            if (password_verify($Password, $user_data['Password'])) {
+              if (password_verify($Password, $user_data['Password'])) {
                 $_SESSION['National_ID'] = $user_data['National_ID'];
-                // Ensure there is no output before header
                 header("Location: stations.php");
                 die;
             } else {

@@ -4,27 +4,38 @@ include("connection.php");
 include("functions.php");
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-  $fName = $_POST['First_Name'];
-  $lName = $_POST['Last_Name'];
-  $National_ID = $_POST['National_ID'];
-  $email = $_POST['Email'];
-  $Password = $_POST['Password'];
+    $fName = $_POST['First_Name'];
+    $lName = $_POST['Last_Name'];
+    $National_ID = $_POST['National_ID'];
+    $email = $_POST['Email'];
+    $Password = $_POST['Password'];
 
+    if (!empty($National_ID) && !empty($Password) && !empty($email)) {
+        $check_stmt = $con->prepare("SELECT Email FROM users WHERE Email = ?");
+        $check_stmt->bind_param("s", $email);
+        $check_stmt->execute();
+        $check_stmt->store_result();
 
-    if (!empty($National_ID) && !empty($Password)) {
-        $hashed_password = password_hash($Password, PASSWORD_DEFAULT);
-        $stmt = $con->prepare("INSERT INTO users (First_Name, Last_Name, National_ID	, Password, Email) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("sssss",$fName,$lName, $National_ID, $hashed_password, $email);
-        $stmt->execute();
-        $stmt->close();
-        
-        header("Location: login.php");
-        die;
+        if ($check_stmt->num_rows > 0) {
+            echo "This email is already in use. Please choose another email.";
+            $check_stmt->close();
+        } else {
+            $check_stmt->close();
+            $hashed_password = password_hash($Password, PASSWORD_DEFAULT);
+            $stmt = $con->prepare("INSERT INTO users (First_Name, Last_Name, National_ID, Password, Email) VALUES (?, ?, ?, ?, ?)");
+            $stmt->bind_param("sssss", $fName, $lName, $National_ID, $hashed_password, $email);
+            $stmt->execute();
+            $stmt->close();
+            
+            header("Location: login.php");
+            die;
+        }
     } else {
         echo "Please enter valid information";
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

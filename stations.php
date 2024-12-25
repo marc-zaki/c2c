@@ -59,6 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <li class="nav-item"><a href="./lines.html" class="nav-link text-success">Lines</a></li>
                 <li class="nav-item"><a href="./FAQs.html" class="nav-link text-success">FAQs</a></li>
                 <li class="nav-item"><a href="./about.html" class="nav-link text-success">About</a></li>
+                <li class="nav-item"><a href="./edit_user.php" class="nav-link text-success">Account</a></li>
             </ul>
         </header>
     </div>
