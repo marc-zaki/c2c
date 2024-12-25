@@ -1,11 +1,11 @@
 <?php
-session_start(); // Start the session
+session_start();
 
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "";
 $dbname = "trip";
-include("functions.php"); // Ensure this file contains the generateRandomNumber function
+include("functions.php");
 $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 
 if ($conn->connect_error) {

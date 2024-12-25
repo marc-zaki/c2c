@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     questions.forEach(question => {
         question.addEventListener("click", (event) => {
-            event.preventDefault(); // Prevent default behavior
+            event.preventDefault();
             question.classList.toggle("active");
             const answer = question.nextElementSibling;
             const icon = question.querySelector(".icon");

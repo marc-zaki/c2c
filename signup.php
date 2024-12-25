@@ -54,13 +54,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <h1>Welcome to Cairo2Capital Transport</h1>
     <p class="title">Signup</p>
 
-    <!-- First Name -->
     <div class="input-box">
       <input type="text" placeholder="First Name" name="First_Name">
       <i class='bx bxs-user'></i> 
     </div>
     
-    <!-- Last Name -->
     <div class="input-box">
       <input type="text" placeholder="Last Name" name="Last_Name">
       <i class='bx bxs-user'></i> 
