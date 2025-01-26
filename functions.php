@@ -1,10 +1,10 @@
 <?php
 function check_login($con)
 {
-    if(isset($_SESSION['National_ID']))
+    if(isset($_SESSION['CustSSN']))
     {
-        $id=$_SESSION['National_ID'];
-        $query= "select * from users where National_ID = '$id' limit 1";
+        $id=$_SESSION['CustSSN'];
+        $query= "select * from customer where CustSSN = '$id' limit 1";
         $result=mysqli_query($con,$query);
         if($result && mysqli_num_rows($result)>0)
         {
@@ -15,7 +15,7 @@ function check_login($con)
     header("Location: login.php");
     die;
 }
-function generateRandomNumber($length = 10) {
-    return rand(pow(10, $length-1), pow(10, $length)-1);
+function generateRandomNumber($length = 4) {
+    return rand(pow(4, $length-1), pow(4, $length)-1);
 }
 ?>

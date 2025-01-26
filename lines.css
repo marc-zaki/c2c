@@ -6,9 +6,7 @@
     font-weight: 500;
     font-style: normal;
 }
-body {
-    background: #ecececdb;
-}
+
 .slider-container{
     width: 100%;
     height: 100vh;
@@ -60,7 +58,6 @@ body {
     left: -10%;
     transform: rotate(270deg);
     transition: 0.7s ease;
-    -webkit-text-stroke: 0.25px black;
 
 }
 .metro{
@@ -74,7 +71,6 @@ body {
     left: -50%;
     transform: rotate(270deg);
     transition: 0.7s ease;
-    -webkit-text-stroke: 0.25px black;
 
 }
 .Bus{
@@ -88,7 +84,6 @@ body {
     left: -60%;
     transform: rotate(270deg);
     transition: 0.7s ease;
-    -webkit-text-stroke: 0.25px black;
 
 }
 .details{
@@ -106,7 +101,6 @@ body {
     text-transform: uppercase;
     transition: 0.7 ease;
     display: none;
-    -webkit-text-stroke: 0.25px black;
 }
 .details p{
     font-size: 20px;
@@ -118,7 +112,6 @@ body {
     text-transform: uppercase;
     transition: 0.7 ease;
     display: none;
-    -webkit-text-stroke: 0.7px black;
 }
 .slider-image.active{
     width: 500px !important;

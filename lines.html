@@ -4,31 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lines</title>
-    <link rel="stylesheet" href="lines.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./lines.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   </head>
 <body>
-    <div class="container">
-        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-          <a href="login.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a href="login.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
             <img src="./pictures/logo c2c.png" alt="" height="100px" width="230px">
             <span class="fs-4">Cairo2Capital Transport</span>
-        </a> 
-          <ul class="nav nav-pills">
+        </a>
+        <ul class="nav nav-pills">
             <li class="nav-item"><a href="./stations.php" class="nav-link text-success">Home</a></li>
-            <li class="nav-item "><a href="./lines.html" class="nav-link active bg-success text-white" aria-current="">Lines</a></li>
+            <li class="nav-item"><a href="./lines.html" class="nav-link  bg-success text-white">Lines</a></li>
             <li class="nav-item"><a href="./FAQs.html" class="nav-link text-success">FAQs</a></li>
             <li class="nav-item"><a href="./about.html" class="nav-link text-success">About</a></li>
             <li class="nav-item"><a href="./edit_user.php" class="nav-link text-success">Account</a></li>
-          </ul>
-        </header>
-      </div>
-
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-success" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Admin Portal
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="./1train_details.php">Train Details</a></li>
+                    <li><a class="dropdown-item" href="./2stations_details.php">Stations Details</a></li>
+                    <li><a class="dropdown-item" href="./3maintenance.php">Maintenance</a></li>
+                    <li><a class="dropdown-item" href="./4line_details.php">Line Details</a></li>
+                    <li><a class="dropdown-item" href="./5drivers_details.php">Drivers Details</a></li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+</div>
       <div class="container-cards">
         <h1 style="text-align: center;">Our Lines</h1>
         <h2 style="text-align: center;">Click on each arrow to view the full map of the line! </h2>
@@ -94,12 +106,14 @@
           <ul class="nav justify-content-center border-bottom pb-3 mb-3">
             <li class="nav-item"><a href="./stations.php" class="nav-link px-2 text-body-secondary">Home</a></li>
             <li class="nav-item"><a href="./lines.html" class="nav-link px-2 text-body-secondary">Lines</a></li>
-            <li class="nav-item"><a href="./FAQ/FAQs.html" class="nav-link px-2 text-body-secondary">FAQs</a></li>
-            <li class="nav-item"><a href="./About/about.html" class="nav-link px-2 text-body-secondary">About</a></li>
+            <li class="nav-item"><a href="./FAQs.html" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+            <li class="nav-item"><a href="./about.html" class="nav-link px-2 text-body-secondary">About</a></li>
           </ul>
           <p class="text-center text-body-secondary">© 2024 Cairo2Capital Transport</p>
         </footer>
       </div>
-      <script src="./lines.js"></script>
+    <script src="./lines.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

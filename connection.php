@@ -2,7 +2,7 @@
  $dbhost="localhost";
  $dbuser="root";
  $dbpass="";
- $dbname="signup";
+ $dbname="trip";
 
 if(!$con=mysqli_connect($dbhost,$dbuser,$dbpass,$dbname))
 {

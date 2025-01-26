@@ -1,108 +1,147 @@
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-style: normal;
 }
 
-.plan-container{
-    max-width: 300px;
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    background-image: url('./pictures/New_Administrative_Capital_4.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: -1;
+    min-height: 100vh;
+    overflow-y: scroll;
+}
+
+body::before {
+    content: "";
+    position: fixed; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    filter: blur(3px);
+    z-index: -1;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.plan-container {
+    max-width: 350px;
+    height: 500px;
     margin: 100px auto;
-    background-color: #198754;
+    background-color: rgb(190, 243, 219, 0.6);
     border-radius: 8px;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.04);
-    border: 2px solid transparent;
-    position: relative;
-    height: 420px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-.plan-h2{
-    position: relative;
-    left: 20px;
-    top: 10px;
+
+.plan-h2 {
+    color: #198754;
+    margin-bottom: 20px;
+}
+
+.from-box, .to-box, .date {
+    font-size: 15px;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 0.5px solid black;
+    border-radius: 5px;
+    background-color: rgb(190, 243, 219);
+}
+
+.plan-btn {
+    background-color: rgb(25, 135, 84);
     color: white;
-}
-.from-box{
-    font-size: 15px;
-    left: 10px;
-    position: relative;
-    top: 30px;
-    width: 275px;
-    height: 45px;
     border: none;
+    padding: 10px 20px;
+    margin: 10px 0;
+    margin-top: 160px;
     border-radius: 5px;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, .1);
-    background-color: #bef3db;
-}
-.to-box{
-    font-size: 15px;
-    left: 10px;
-    position: relative;
-    top: 50px;
-    width: 275px;
-    height:45px;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, .1);
-    background-color: #bef3db;
-}
-.plan-btn{
-    font-size: 20px;
-    left: 10px;
-    position: absolute;
-    top: 340px;
-    width: 275px;
-    height: 60px;
-    background: #fff;
-    border: none;
-    outline: none;
     cursor: pointer;
-    color: #157146;
-    border-radius: 5px;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, .1);
 }
-::placeholder{
-    color: black;
-}
-.line {
-    border-bottom: 2.5px solid white;
-    margin-top: 10px;
-    width: 150%;
-}
+
 .faq-question {
-    font-size: 20px;
-    left: 10px;
-    position: relative;
-    top: 65px;
-    height: 10px;
-    cursor: pointer;
-    color: #fff;
-    border-radius: 5px;
+    background-color: transparent;
     border: none;
-    background-color: #198754;
-}
-
-.icon {
-    font-size: 1.5rem;
-    color: #fff;
-}
-
-.faq-question.active .icon {
-    content: "-";
-}
-
-.date {
-    left: 15px;
-    position: relative;
-    top: 70px;
-    width: 260px;
-    height: 45px;
-    background: #bef3db;
+    margin: 10px 0;
     cursor: pointer;
-    color: black;
-    border: none;
-    border-radius: 5px;
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.faq-item {
+    margin: 10px 0;
+    position: relative;
 }
 
 .faq-answer {
     display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+    padding: 10px;
+    z-index: 1;
+}
+
+.faq-question:focus + .faq-answer,
+.faq-answer:focus-within {
+    display: block;
+}
+
+.faq-question.active + .faq-answer {
+    display: block;
+}
+
+.header {
+    background: rgba(255, 255, 255, 0.8);
+    width: 100%;
+}
+
+footer {
+    background: rgba(255, 255, 255);
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+.line {
+    border-bottom: 2.5px solid white;
+    margin-top: 20px;
+    width: 100%;
+}
+.icon {
+    font-size: 1rem;
+    color: black;
+}
+
+.faq-question.active .icon {
+    content: "-";
 }

@@ -4,14 +4,14 @@ include("connection.php");
 include("functions.php");
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $fName = $_POST['First_Name'];
-    $lName = $_POST['Last_Name'];
-    $National_ID = $_POST['National_ID'];
-    $email = $_POST['Email'];
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $CustSSN = $_POST['CustSSN'];
+    $custEmail = $_POST['custEmail'];
     $Password = $_POST['Password'];
 
-    if (!empty($National_ID) && !empty($Password) && !empty($email)) {
-        $check_stmt = $con->prepare("SELECT Email FROM users WHERE Email = ?");
+    if (!empty($CustSSN) && !empty($Password) && !empty($custEmail)) {
+        $check_stmt = $con->prepare("SELECT custEmail FROM customer WHERE custEmail = ?");
         $check_stmt->bind_param("s", $email);
         $check_stmt->execute();
         $check_stmt->store_result();
@@ -22,8 +22,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         } else {
             $check_stmt->close();
             $hashed_password = password_hash($Password, PASSWORD_DEFAULT);
-            $stmt = $con->prepare("INSERT INTO users (First_Name, Last_Name, National_ID, Password, Email) VALUES (?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssss", $fName, $lName, $National_ID, $hashed_password, $email);
+            $stmt = $con->prepare("INSERT INTO customer (first_name, last_name, CustSSN, Password, custEmail) VALUES (?, ?, ?, ?, ?)");
+            $stmt->bind_param("sssss", $first_name, $last_name, $CustSSN, $hashed_password, $custEmail);
             $stmt->execute();
             $stmt->close();
             
@@ -55,21 +55,21 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <p class="title">Signup</p>
 
     <div class="input-box">
-      <input type="text" placeholder="First Name" name="First_Name">
+      <input type="text" placeholder="First Name" name="first_name">
       <i class='bx bxs-user'></i> 
     </div>
     
     <div class="input-box">
-      <input type="text" placeholder="Last Name" name="Last_Name">
+      <input type="text" placeholder="Last Name" name="last_name">
       <i class='bx bxs-user'></i> 
     </div>
 
     <div class="input-box">
-      <input type="number" placeholder="National ID" name='National_ID' id="nationalID" required>
+      <input type="number" placeholder="National ID" name='CustSSN' id="nationalID" required>
       <i class='bx bxs-user'></i>    
     </div>
     <div class="input-box">
-      <input type="email" placeholder="Email (Optional)" name='Email'>
+      <input type="email" placeholder="Email (Optional)" name='custEmail'>
       <i class='bx bxs-envelope'></i>    
     </div>
     <div class="input-box">

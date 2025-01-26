@@ -2,21 +2,22 @@
 session_start();
 include("connection.php");
 include("functions.php");
+
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $National_ID = $_POST['National_ID'];
+    $CustSSN = $_POST['CustSSN'];
     $Password = $_POST['Password'];
 
-    if (!empty($National_ID) && !empty($Password)) {
-        $query = "SELECT * FROM users WHERE National_ID = ? LIMIT 1";
+    if (!empty($CustSSN) && !empty($Password)) {
+        $query = "SELECT * FROM customer WHERE CustSSN = ? LIMIT 1";
         $stmt = $con->prepare($query);
-        $stmt->bind_param("s", $National_ID);
+        $stmt->bind_param("s", $CustSSN);
         $stmt->execute();
         $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
             $user_data = $result->fetch_assoc();
-              if (password_verify($Password, $user_data['Password'])) {
-                $_SESSION['National_ID'] = $user_data['National_ID'];
+            if (password_verify($Password, $user_data['Password'])) {
+                $_SESSION['CustSSN'] = $user_data['CustSSN'];
                 header("Location: stations.php");
                 die;
             } else {
@@ -25,13 +26,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         } else {
             echo "No user found with that National ID";
         }
-        
+
         $stmt->close();
     } else {
         echo "Please enter valid information";
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     
     <!-- National ID -->
     <div class="input-box">
-      <input type="number" placeholder="National ID" name='National_ID' id="nationalID" required>
+      <input type="number" placeholder="National ID" name='CustSSN' id="nationalID" required>
       <i class='bx bxs-user'></i>    
     </div>
 

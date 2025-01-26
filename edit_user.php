@@ -2,36 +2,36 @@
 session_start();
 include("connection.php");
 
-if (!isset($_SESSION['National_ID'])) {
+if (!isset($_SESSION['CustSSN'])) {
     header("Location: login.php");
     die;
 }
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $nationalId = $_SESSION['National_ID'];
-    $firstName = $_POST['First_Name'];
-    $lastName = $_POST['Last_Name'];
-    $email = $_POST['Email'];
-    $password = $_POST['Password'];
-    if (!empty($password)) {
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-        $query = "UPDATE users SET Password = '$hashed_password' WHERE National_ID = '$nationalId'";
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $CustSSN = $_POST['CustSSN'];
+    $custEmail = $_POST['custEmail'];
+    $Password = $_POST['Password'];
+    if (!empty($Password)) {
+        $hashed_password = password_hash($Password, PASSWORD_DEFAULT);
+        $query = "UPDATE customer SET Password = '$hashed_password' WHERE CustSSN = '$CustSSN'";
     }
 
-    if (!empty($email)) {
-        $query = "UPDATE users SET Email = '$email',  WHERE National_ID = '$nationalId'";
+    if (!empty($custEmail)) {
+        $query = "UPDATE customer SET custEmail = '$custEmail',  WHERE CustSSN = '$CustSSN'";
     }
 
-    if(!empty($nationalId)){
-        $query = "UPDATE users SET National_ID = '$nationalId' WHERE National_ID = '$nationalId'";
+    if(!empty($CustSSN)){
+        $query = "UPDATE customer SET CustSSN = '$CustSSN' WHERE CustSSN = '$CustSSN'";
     }
 
-    if (!empty($firstName)){
-        $query = "UPDATE users SET First_Name = '$firstName' WHERE National_ID = '$nationalId'";
+    if (!empty($first_name)){
+        $query = "UPDATE customer SET first_name = '$first_name' WHERE CustSSN = '$CustSSN'";
     }
 
-    if (!empty($lastName)){
-        $query = "UPDATE users SET Last_Name = '$lastName' WHERE National_ID = '$nationalId'";
+    if (!empty($last_name)){
+        $query = "UPDATE customer SET last_name = '$last_name' WHERE CustSSN = '$CustSSN'";
     }
 
         $result = mysqli_query($con, $query);
@@ -83,15 +83,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <form method="post" action="edit_user.php">
             <div class="form-group">
                 <label for="First_Name">First Name (Leave blank if you don't want to change it):</label>
-                <input type="text" id="First_Name" name="First_Name" class="form-control">
+                <input type="text" id="First_Name" name="first_Name" class="form-control">
             </div>
             <div class="form-group">
                 <label for="Last_Name">Last Name (Leave blank if you don't want to change it):</label>
-                <input type="text" id="Last_Name" name="Last_Name" class="form-control">
+                <input type="text" id="Last_Name" name="last_Name" class="form-control">
             </div>
             <div class="form-group">
                 <label for="Email">Email (Leave blank if you don't want to change it):</label>
-                <input type="email" id="Email" name="Email" class="form-control">
+                <input type="email" id="Email" name="custEmail" class="form-control">
             </div>
             <div class="form-group">
                 <label for="Password">Password (Leave blank if you don't want to change it):</label>
@@ -99,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             </div>
             <div class="form-group">
                 <label for="National_ID">National ID (Leave blank if you don't want to change it):</label>
-                <input type="text" id="National_ID" name="National_ID" class="form-control">
+                <input type="text" id="National_ID" name="custSSN" class="form-control">
             </div>
             <br>
             <button type="submit" class="btn btn-success">Update Details</button>
